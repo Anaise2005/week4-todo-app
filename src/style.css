@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* Dark mode is switched by adding the "dark" class on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens: colours and fonts, used as Tailwind utilities (bg-plum-900, font-display...). */
+@theme {
+  --color-plum-950: #1d0830;
+  --color-plum-900: #2b0f40;
+  --color-plum-800: #3d1859;
+  --color-plum-700: #552a78;
+  --color-lilac-50: #f8f2fd;
+  --color-lilac-100: #efe4f8;
+  --color-lilac-200: #ddc9f0;
+  --color-gold-400: #f2b544;
+  --color-gold-500: #e59f1f;
+  --color-magenta-600: #d6246e;
+  --color-magenta-700: #b01a5a;
+  --color-mint-500: #2fcf9a;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Soft colour glow behind the page. */
+.page-glow {
+  background-image:
+    radial-gradient(60rem 28rem at 8% -10%, rgb(214 36 110 / 0.16), transparent 60%),
+    radial-gradient(50rem 28rem at 100% 0%, rgb(242 181 68 / 0.22), transparent 55%);
+  background-attachment: fixed;
+}
+.dark .page-glow {
+  background-image:
+    radial-gradient(60rem 28rem at 8% -10%, rgb(214 36 110 / 0.28), transparent 60%),
+    radial-gradient(50rem 28rem at 100% 0%, rgb(242 181 68 / 0.12), transparent 55%);
+}
+
+/* The signature element: a plaited rope made only from CSS gradients. */
+.braid-strip {
+  height: 16px;
+  border-radius: 999px;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 7px, rgb(29 8 48 / 0.35) 7px 9px),
+    repeating-linear-gradient(45deg, var(--color-gold-400) 0 9px, var(--color-magenta-600) 9px 18px);
+}
+
+/* Round checkbox with a white tick when checked. */
+.check:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l3 3 6-7'/%3E%3C/svg%3E");
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
